@@ -25,7 +25,7 @@ jobs:
         run: buildozer android debug
 
       - name: Upload APK artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@1c2aeea48b316b6a1886a1e33687a13eacaa8d84
         with:
           name: visualtagger-apk
           path: bin/*.apk
