@@ -1,29 +1,37 @@
 name: Build APK
 
+# Se ejecuta manualmente y también al hacer push en main.
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clonar el repositorio
+      # Paso 1: Clonar el repositorio
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Configurar entorno
+      # Paso 2: Configurar el entorno e instalar dependencias necesarias
+      - name: Setup environment
         run: |
-          sudo apt update
-          sudo apt install -y zip unzip openjdk-17-jdk python3-pip
+          sudo apt-get update
+          sudo apt-get install -y zip unzip openjdk-17-jdk python3-pip
           pip install --upgrade pip
           pip install buildozer
 
-      - name: Compilar APK
+      # Paso 3: Compilar la APK usando Buildozer
+      - name: Build APK with Buildozer
         run: |
           buildozer android debug
 
-      - name: Subir APK como artefacto
-        uses: actions/upload-artifact@v3
+      # Paso 4: Subir el APK generado como artefacto
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v2
         with:
           name: visualtagger-apk
           path: bin/*.apk
