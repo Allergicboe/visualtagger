@@ -17,7 +17,7 @@ jobs:
       - name: Setup environment
         run: |
           sudo apt-get update
-          sudo apt-get install -y zip unzip openjdk-17-jdk python3-pip
+          sudo apt-get install -y zip unzip openjdk-17-jdk python3-pip autoconf automake libtool pkg-config libxml2-utils libxslt1-dev
           pip install --upgrade pip
           pip install buildozer Cython
 
