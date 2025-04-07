@@ -23,7 +23,7 @@ jobs:
           buildozer android debug
 
       - name: Subir APK como artefacto
-        uses: actions/upload-artifact@actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: visualtagger-apk
           path: bin/*.apk
