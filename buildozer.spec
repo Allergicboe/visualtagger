@@ -1,7 +1,7 @@
 [app]
 title = Visual Tagger
 package.name = visualtagger
-package.domain = org.tudominio.visualtagger
+package.domain = org.yourdomain.visualtagger
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 source.exclude_dirs = bin,build,__pycache__
